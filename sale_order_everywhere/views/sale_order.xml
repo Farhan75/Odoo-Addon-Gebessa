@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="mrp_production_form_view" model="ir.ui.view">
+            <field name="name">mrp.production.sale.id.form.view</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="sale_mrp.mrp_production_form_view_inherit_sale_mrp" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sale_name']" position="after">
+                    <field name='sale_id' readonly="True"/>
+                    <field name='partner_id' readonly="True"/>
+                    <field name='client_order_ref' readonly="True"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="mrp_production_tree_view" model="ir.ui.view">
+            <field name="name">mrp.production.tree.view</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_tree_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_planned']" position="before">
+                    <field name='partner_id'/>
+                    <field name='city_shipping'/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
